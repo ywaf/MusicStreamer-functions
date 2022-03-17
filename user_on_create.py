@@ -7,7 +7,7 @@ def user_on_create(event, context): # cloud functions entrypoint
     uid = event['uid']
     email = event['email']
     print(str(event))
-    cred = credentials.Certificate("/Users/leho/Downloads/serviceAccountKey.json")
+    cred = credentials.Certificate("/Users/leho/Downloads/serviceAccountKey.json") # change this!! use actions secrets!!
 
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://musicstreamer-sdd-default-rtdb.asia-southeast1.firebasedatabase.app/'
