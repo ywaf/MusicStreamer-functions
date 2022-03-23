@@ -1,0 +1,19 @@
+{
+  "songs": {
+    "id1": {
+      "url": "http://example.com/song1.mp3"
+    },
+    "id2": {
+      "url": "http://example.com/song2.mp3"
+    },
+    "id3": {
+      "url": "http://example.com/song3.mp3"
+    },
+    "id4": {
+      "url": "http://example.com/song4.mp3"
+    },
+    "id5": {
+      "url": "http://example.com/song5.mp3"
+    }
+  }
+}
