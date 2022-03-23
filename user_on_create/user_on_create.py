@@ -27,9 +27,8 @@ def user_on_create(event, context): # cloud functions entrypoint
     users_ref = a.child('users')
     users_ref.update({
         str(uid): {
-            'name': 'testaccount',
+            'name': 'none',
             'email': str(email),
-            'profile_picture': 'none',
             'plan': 'free'
         }
     })

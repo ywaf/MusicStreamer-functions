@@ -1,3 +1,4 @@
+# gcp function to update the name of a user - call after a user is created
 import os
 import firebase_admin
 from firebase_admin import db
@@ -29,9 +30,6 @@ def update_details(request):
         args = request.args
         token = args.get("token")
         nametoset = args.get("name")
-        decoded_token = auth.verify_id_token(str(token))
-        uid = decoded_token['uid']
-
 
     except:
         return_bad_args = {"success" : "false",
@@ -39,18 +37,30 @@ def update_details(request):
         return return_bad_args, 400
 
     try:
+        decoded_token = auth.verify_id_token(str(token))
+        uid = decoded_token['uid']
+    except:
+        return_bad_token = {"success" : "false",
+             "error" : "bad token"}
+        return return_bad_token, 400
+
+    try:
         a = db.reference("/")
         users_ref = a.child('users')
         uid_ref = users_ref.child(str(uid))
-        uid_ref.update({'name': str(nametoset)})
-        # users_ref.update({
-        #     str(uid): {
-        #         'name': str(nametoset),
-        #     }
-        # })
-        return "ok", 200
+        updat = uid_ref.update({'name': str(nametoset)})
+        if updat.success():
+            return_success = {"success" : "true", "error" : "none"}
+            return return_success, 200
+        else:
+            return_failed = {"success" : "false", "error" : "failed to update"}
+            return return_failed, 400
+
     except Exception as e:
         print("Error " + str(e))
+        return_failed = {"success" : "false", "error" : "failed to update"}
+        return return_failed, 400
+
 
 
 
