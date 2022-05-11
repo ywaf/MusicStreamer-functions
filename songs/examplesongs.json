@@ -1,34 +1,38 @@
 {
-  "songs": {
-    "id1": {
+  "songs": [
+    {
+      "id": "1",
       "title": "Song 1",
       "artist": "Artist 1",
       "album": "Album 1",
-      "artwork": "http://example.com/id1.jpg"
+      "artwork": "http://example.com/song1.jpg"
     },
-    "id2": {
+    { "id": "2",
       "title": "Song 2",
       "artist": "Artist 2",
       "album": "Album 2",
-      "artwork": "http://example.com/id2.jpg"
+      "artwork": "http://example.com/song2.jpg"
     },
-    "id3": {
+    {
+      "id": "3",
       "title": "Song 3",
       "artist": "Artist 3",
       "album": "Album 3",
-      "artwork": "http://example.com/id3.jpg"
+      "artwork": "http://example.com/song3.jpg"
     },
-    "id4": {
+    {
+      "id": "4",
       "title": "Song 4",
       "artist": "Artist 4",
       "album": "Album 4",
-      "artwork": "http://example.com/id4.jpg"
+      "artwork": "http://example.com/song4.jpg"
     },
-    "id5": {
+    {
+      "id": "5",
       "title": "Song 5",
       "artist": "Artist 5",
       "album": "Album 5",
-      "artwork": "http://example.com/id5.jpg"
+      "artwork": "http://example.com/song5.jpg"
     }
-  }
+ ]
 }
