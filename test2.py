@@ -14,9 +14,6 @@ from google.cloud import storage
 app = flask.Flask(__name__)
 
 def getobject(id):
-    storage_client = storage.Client()
-
-    bucket = storage_client.bucket(bucket_name)
 
 
 @app.route("/test", methods=['GET'])
