@@ -1,0 +1,4 @@
+firebase_admin
+functions_framework
+google-cloud-storage
+flask
