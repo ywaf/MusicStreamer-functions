@@ -20,6 +20,7 @@ def getobject(id):
     try:
         storage_client = storage.Client.from_service_account_json('/keys/firebase_service_key.json')
         bucket = storage_client.bucket("music_streamer_songs")
+        # todo validate the id bcasuse it crashes rn if you give it a bad id
         blob = bucket.blob("songs/" + id + ".mp3")
         contents = blob.download_as_string()
         print(contents)
