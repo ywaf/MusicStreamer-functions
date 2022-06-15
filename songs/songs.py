@@ -12,6 +12,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 from google.cloud import storage
 
+
 # app = flask.Flask(__name__)
 
 
@@ -25,7 +26,7 @@ def getobject(id):
         return contents
     except Exception as e:
         print(e)
-        return "wtf are you doing :skull:"
+        return {"success": "false", "error": "error getting object or song does not exist"}, 400
 
 
 @functions_framework.http
@@ -65,7 +66,7 @@ def songs(request):
             authtoken = headers.get("Authorization")
             print(authtoken)
             if authtoken == "" or authtoken is None:
-                return "no auth provided :kekw:"
+                return {"success": "false", "error": "no auth provided"}, 400
             try:
 
                 decoded_token = auth.verify_id_token(authtoken)
@@ -77,12 +78,11 @@ def songs(request):
 
             except Exception as e:
                 print(e)
-                return "invalid token"
+                return {"success": "false", "error": "invalid auth token"}, 400
             return uid
         except:
             print("Failure Getting Headers")
-            return "Error"
+            return {"success": "false", "error": "failure getting headers"}, 400
         return "how tf did u get here"
-
 
 # app.run(host="0.0.0.0", port=8080)
