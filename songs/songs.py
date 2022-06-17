@@ -59,7 +59,7 @@ def songs(request):
         print("firebase app failed to init, or is init already, full traceback: " + str(e))
 
     headers = request.headers
-    print("Recieved Headers:" + headers)
+    print("Recieved Headers:" + str(headers))
     songid = headers.get('songid')
     if songid is None:
         return {"success": "false", "error": "no song id"}, 400
