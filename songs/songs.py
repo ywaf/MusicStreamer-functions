@@ -65,7 +65,7 @@ def songs(request):
         return {"success": "false", "error": "no song id"}, 400
     else:
         try:
-            authtoken = headers.get("Authorization")
+            authtoken = headers.get("auth")
             print(authtoken)
             if authtoken == "" or authtoken is None:
                 return {"success": "false", "error": "no auth provided"}, 400
