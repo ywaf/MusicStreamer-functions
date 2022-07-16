@@ -23,7 +23,7 @@ def getobject(id):
         # todo validate the id bcasuse it crashes rn if you give it a bad id
         blob = bucket.blob("songs/" + id + ".mp3")
         contents = blob.download_as_string()
-        print(contents)
+        # print(contents)
         return contents
     except Exception as e:
         print(e)
@@ -34,9 +34,9 @@ def getobject(id):
 def songs(request):
     try:  # shamelessly ripped from oncreate function
         privkey = "/keys/firebase_service_key.json"  # gets the json secret from mounted disk - manage in gcp secrets manager
-        db_url = str(
-            os.getenv("FIREBASE_DB_URL"))  # firebase db url - just get from realtime database tab in firebase console
-        print(db_url)
+        # db_url = str(
+        #     os.getenv("FIREBASE_DB_URL"))  # firebase db url - just get from realtime database tab in firebase console
+        # print(db_url)
     except Exception as e:
         print("Error Getting env variables!")  # this shouldnt ever happen if you have it setup properly
         return_env_variables = {"success": "false",
@@ -65,7 +65,7 @@ def songs(request):
         return {"success": "false", "error": "no song id"}, 400
     else:
         try:
-            authtoken = headers.get("auth")
+            authtoken = headers.get("Authtoken")
             print(authtoken)
             if authtoken == "" or authtoken is None:
                 return {"success": "false", "error": "no auth provided"}, 400
