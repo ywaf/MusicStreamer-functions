@@ -21,7 +21,7 @@ def update_details(request):
     cred = credentials.Certificate(privkey) # use actions secrets!!
     try:
         firebase_admin.initialize_app(cred, {
-            'databaseURL': "https://musicstreamer-sdd-default-rtdb.asia-southeast1.firebasedatabase.app"  # get db url from secrets for security i guess :/
+            'databaseURL': db_url 
         })
     except Exception as e:
         print("firebase app failed to init, or is init already, full traceback: " + str(e))
